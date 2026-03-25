@@ -4,6 +4,7 @@ import { TrustBar } from '@/components/sections/trust-bar';
 import { ServicesGrid } from '@/components/sections/services-grid';
 import { WhyChooseUs } from '@/components/sections/why-choose-us';
 import { CalculatorPreview } from '@/components/sections/calculator-preview';
+import { InvestToolCTA } from '@/components/sections/invest-tool-cta';
 import { FAQ } from '@/components/sections/faq';
 import { CTASection } from '@/components/sections/cta-section';
 
@@ -24,6 +25,8 @@ export default function Home() {
       <WhyChooseUs />
       <div className="section-divider" />
       <CalculatorPreview />
+      <div className="section-divider" />
+      <InvestToolCTA />
       <div className="section-divider" />
       <FAQ />
       <div className="section-divider" />

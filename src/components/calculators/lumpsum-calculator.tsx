@@ -124,6 +124,7 @@ export function LumpsumCalculator() {
             </table>
           </div>
         ) : (
+          <div className="w-full min-h-[200px]">
           <ResponsiveContainer width="100%" height={350}>
             <AreaChart data={chartData}>
               <defs>
@@ -137,6 +138,7 @@ export function LumpsumCalculator() {
               <Area type="monotone" dataKey="savings" name="Savings A/c (4%)" stroke="#9ca3af" strokeWidth={1.5} fill="none" strokeDasharray="6 4" animationDuration={LIGHT_CHART_THEME.animation.duration} />
             </AreaChart>
           </ResponsiveContainer>
+          </div>
         )}
       </div>
       <PrintDisclaimer />

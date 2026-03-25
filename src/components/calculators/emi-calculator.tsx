@@ -104,7 +104,7 @@ export function EMICalculator() {
         </div>
 
         {/* Donut Chart */}
-        <div className="h-[350px] flex items-center justify-center">
+        <div className="w-full min-h-[200px] h-[350px] flex items-center justify-center">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie data={pieData} innerRadius="55%" outerRadius="80%" startAngle={90} endAngle={-270} dataKey="value" isAnimationActive animationDuration={800} paddingAngle={2}>

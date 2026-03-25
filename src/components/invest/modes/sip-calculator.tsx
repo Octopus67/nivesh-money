@@ -81,11 +81,11 @@ export default function SIPCalculator() {
       </div>
 
       <div className="space-y-4">
-        <div className="rounded-2xl p-4" style={{ background: 'var(--bg-surface)', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-card)' }}>
+        <div className="rounded-2xl p-4 min-h-[200px]" style={{ background: 'var(--bg-surface)', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-card)' }}>
           <GrowthChart data={chartData} secondaryData={flatChartData ?? undefined} milestones={MILESTONES} />
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <ResultCard label="Invested" value={result.invested} barPercent={investedPct} barColor="var(--text-muted)" />
           <ResultCard label="Returns" value={result.returns} barPercent={100 - investedPct} barColor="var(--positive)" />
           <ResultCard label="Corpus" value={result.corpus} accent barPercent={100} />

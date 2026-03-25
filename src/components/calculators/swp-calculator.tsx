@@ -157,6 +157,7 @@ export function SWPCalculator() {
             </table>
           </div>
         ) : (
+          <div className="w-full min-h-[200px]">
           <ResponsiveContainer width="100%" height={350}>
             <AreaChart data={chartData}>
               <defs>
@@ -176,6 +177,7 @@ export function SWPCalculator() {
               )}
             </AreaChart>
           </ResponsiveContainer>
+          </div>
         )}
       </div>
       <PrintDisclaimer />

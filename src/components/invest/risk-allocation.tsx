@@ -80,7 +80,7 @@ export function RiskAllocation({ tab }: Props) {
               <button
                 key={level}
                 onClick={() => setRisk(level)}
-                className="w-6 h-6 rounded-full border-2 transition-all"
+                className="w-8 h-8 rounded-full border-2 transition-all"
                 style={{
                   background: level <= riskLevel ? 'var(--accent-primary)' : 'white',
                   borderColor: level <= riskLevel ? 'var(--accent-primary)' : '#d1d5db',

@@ -129,6 +129,7 @@ export function SIPCalculator() {
               </table>
             </div>
           ) : (
+            <div className="w-full min-h-[200px]">
             <ResponsiveContainer width="100%" height={350}>
               <AreaChart data={chartData}>
                 <defs>
@@ -143,6 +144,7 @@ export function SIPCalculator() {
                 <Area type="monotone" dataKey="returns" stackId="1" stroke={LIGHT_CHART_THEME.colors.returns} strokeWidth={2.5} fill="url(#sipReturns)" animationDuration={LIGHT_CHART_THEME.animation.duration} />
               </AreaChart>
             </ResponsiveContainer>
+            </div>
           )}
         </div>
 

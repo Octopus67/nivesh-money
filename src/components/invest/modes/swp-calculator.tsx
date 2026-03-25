@@ -105,7 +105,7 @@ export default function SWPCalculator() {
       </div>
 
       <div className="space-y-4">
-        <div className="rounded-2xl p-4" style={{ background: 'var(--bg-surface)', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-card)' }}>
+        <div className="rounded-2xl p-4 min-h-[200px]" style={{ background: 'var(--bg-surface)', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-card)' }}>
           <DepletionChart data={chartData} withdrawal={withdrawal} />
         </div>
 
@@ -115,7 +115,7 @@ export default function SWPCalculator() {
           </div>
         )}
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <ResultCard label="Total Withdrawn" value={result.totalWithdrawn} />
           <ResultCard label="Remaining" value={result.remaining} barPercent={corpus > 0 ? Math.round((result.remaining / corpus) * 100) : 0} barColor="var(--positive)" />
           <ResultCard label={result.depletionYear ? 'Depletes In' : 'Lasts'} value={result.depletionYear ?? 40} accent format="years" />

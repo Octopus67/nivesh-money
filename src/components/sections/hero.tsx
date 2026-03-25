@@ -74,7 +74,7 @@ export function HeroSection() {
 
         <WordReveal
           text="Grow Your Wealth With Expert Mutual Fund Advisory"
-          className="text-4xl md:text-[56px] font-bold leading-tight justify-center text-[#1e3a5f]"
+          className="text-3xl md:text-4xl lg:text-[56px] font-bold leading-tight justify-center text-[#1e3a5f]"
         />
 
         <motion.p

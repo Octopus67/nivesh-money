@@ -22,7 +22,7 @@ export function ModePills({ activeMode, onModeChange }: ModePillsProps) {
   const compareCount = state.compareFunds.length;
 
   return (
-    <nav className="flex gap-2" role="tablist" aria-label="Investment tool modes">
+    <nav className="flex gap-1.5 sm:gap-2" role="tablist" aria-label="Investment tool modes">
       {TABS.map(({ key, label, icon: Icon }) => {
         const isActive = activeMode === key;
         return (
@@ -31,7 +31,7 @@ export function ModePills({ activeMode, onModeChange }: ModePillsProps) {
             role="tab"
             aria-selected={isActive}
             onClick={() => onModeChange(key)}
-            className="relative flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors"
+            className="relative flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-colors"
             style={{
               background: isActive ? 'var(--accent-primary)' : 'transparent',
               color: isActive ? '#fff' : 'var(--text-secondary)',
