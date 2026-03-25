@@ -1,0 +1,34 @@
+@media print {
+  /* Hide interactive elements */
+  nav, footer, .no-print, button:not(.print-visible),
+  .whatsapp-float, .cookie-banner, [data-radix-popper-content-wrapper] {
+    display: none !important;
+  }
+
+  /* Reset glass effects */
+  .glass-subtle, .glass-medium, .glass-heavy {
+    background: white !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  /* Kill animations */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Show print-only elements */
+  .print-only { display: block !important; }
+
+  /* Clean layout */
+  body { background: white; color: black; font-size: 12pt; }
+  main { max-width: 100%; padding: 0; }
+
+  /* Charts: ensure SVG prints */
+  .recharts-wrapper { page-break-inside: avoid; }
+
+  /* Page margins */
+  @page { margin: 2cm; }
+}

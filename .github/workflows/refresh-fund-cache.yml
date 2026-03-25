@@ -1,0 +1,52 @@
+name: Refresh Fund Cache
+
+on:
+  schedule:
+    # Every Sunday at 6:00 AM IST (00:30 UTC)
+    - cron: '30 0 * * 0'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Refresh fund cache
+        run: node scripts/refresh-fund-cache.mjs
+
+      - name: Check cache size
+        run: |
+          FUND_COUNT=$(node -e "const d=require('./src/data/fund-cache.json');console.log(Object.keys(d.funds).length)")
+          echo "Funds in cache: $FUND_COUNT"
+          if [ "$FUND_COUNT" -lt 100 ]; then
+            echo "::warning::Cache has fewer than 100 funds — something may be wrong"
+          fi
+
+      - name: Commit updated cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/fund-cache.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: refresh fund cache ($(date +%Y-%m-%d))"
+            git push
+          fi

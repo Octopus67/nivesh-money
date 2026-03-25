@@ -1,0 +1,119 @@
+.invest-tool {
+  --bg-base: #ffffff;
+  --bg-surface: #fafbfc;
+  --bg-elevated: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-subtle: #9ca3af;
+  --accent-primary: #1e3a5f;
+  --accent-secondary: #047857;
+  --accent-blue: #3b82f6;
+  --accent-amber: #d97706;
+  --positive: #047857;
+  --negative: #dc2626;
+  --warning: #d97706;
+  --glass-bg: rgba(255, 255, 255, 0.80);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.10);
+  --chart-1: #1e3a5f;
+  --chart-2: #047857;
+  --chart-3: #dc2626;
+  --chart-4: #d97706;
+  --chart-5: #3b82f6;
+  --chart-6: #7c3aed;
+}
+
+.invest-tool .glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+}
+@supports not (backdrop-filter: blur(12px)) {
+  .invest-tool .glass { background: rgba(250, 251, 252, 0.95); }
+}
+
+.invest-tool .financial-number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.invest-tool .skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: invest-shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+@keyframes invest-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invest-tool *, .invest-tool *::before, .invest-tool *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Premium Slider Thumb */
+.invest-tool input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 2px var(--accent-primary);
+  cursor: grab;
+  transition: transform 100ms, box-shadow 100ms;
+}
+.invest-tool input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 3px var(--accent-primary);
+}
+.invest-tool input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+  cursor: grabbing;
+}
+.invest-tool input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 4px rgba(30,58,95,0.3);
+}
+.invest-tool input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--accent-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: grab;
+}
+.invest-tool input[type="range"]::-moz-range-thumb:active {
+  cursor: grabbing;
+}
+
+.invest-tool input:not([type="range"]):focus-visible,
+.invest-tool button:focus-visible,
+.invest-tool select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30,58,95,0.3);
+}
+
+/* cmdk overrides */
+.invest-tool [cmdk-item] {
+  transition: background 100ms;
+}
+.invest-tool [cmdk-item][data-selected="true"] {
+  background: var(--bg-hover);
+}
+.invest-tool [cmdk-group-heading] {
+  padding: 4px 8px;
+  font-size: 11px;
+}

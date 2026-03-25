@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+
+# Host
+Host: https://nivesh.money
+
+# Sitemaps
+Sitemap: https://nivesh.money/sitemap.xml
