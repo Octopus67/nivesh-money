@@ -6,10 +6,10 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { CountUpOnScroll } from '@/components/ui/count-up';
 
 const stats = [
-  { value: 15, suffix: '+', label: 'Years Experience', icon: Award },
-  { value: 500, suffix: '+', label: 'Happy Clients', icon: Users },
-  { value: 50, prefix: '₹', suffix: ' Cr+', label: 'AUM Managed', icon: TrendingUp },
-  { value: 1, suffix: '', label: 'AMFI Registered', display: 'AMFI', icon: Shield },
+  { value: 500, prefix: '₹', suffix: '', label: 'Min SIP Amount', icon: Award, display: '₹500' },
+  { value: 0, suffix: '%', label: 'Advisory Fee', icon: Shield, display: '0%' },
+  { value: 100, suffix: '+', label: 'Fund Options', icon: TrendingUp },
+  { value: 1, suffix: '', label: 'NISM Certified', icon: Users, display: 'NISM' },
 ];
 
 export function TrustBar() {

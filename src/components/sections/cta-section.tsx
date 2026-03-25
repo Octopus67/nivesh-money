@@ -43,11 +43,9 @@ export function CTASection() {
           Book Free Consultation
         </Link>
         <p className="mt-4 text-sm text-white/60 flex items-center justify-center gap-1.5">
-          or call us at{' '}
-          <a href="tel:+91XXXXXXXXXX" className="inline-flex items-center gap-1 text-white/80 hover:text-white transition-colors">
-            <Phone size={14} />
-            +91 XXXXX XXXXX
-          </a>
+          {/* TODO: Replace with actual phone number */}
+          <Phone size={14} />
+          Call us for a free consultation
         </p>
       </motion.div>
 

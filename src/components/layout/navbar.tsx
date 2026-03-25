@@ -43,8 +43,22 @@ export function Navbar() {
       style={{ transitionDuration: 'var(--duration-normal)' }}
     >
       <nav className="flex items-center justify-between px-6 py-3">
-        <Link href="/" className="text-xl font-bold text-[var(--color-navy)]">
-          Nivesh.money
+        <Link href="/" className="flex items-center gap-2">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="32" x2="32" y2="0">
+                <stop offset="0%" stopColor="#1e3a5f" />
+                <stop offset="100%" stopColor="#047857" />
+              </linearGradient>
+            </defs>
+            <rect x="4" y="20" width="6" height="8" rx="2" fill="url(#logo-grad)" opacity="0.5" />
+            <rect x="13" y="12" width="6" height="16" rx="2" fill="url(#logo-grad)" opacity="0.75" />
+            <rect x="22" y="4" width="6" height="24" rx="2" fill="url(#logo-grad)" />
+          </svg>
+          <span className="text-xl font-bold">
+            <span className="text-[var(--color-navy)]">Nivesh</span>
+            <span className="text-[var(--color-accent-secondary)]">.money</span>
+          </span>
         </Link>
 
         {/* Desktop */}
@@ -85,7 +99,24 @@ export function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className="bg-white/95 backdrop-blur-xl">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="flex flex-col gap-6 mt-12">
+            <div className="flex items-center gap-2 mb-2">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="logo-grad-m" x1="0" y1="32" x2="32" y2="0">
+                    <stop offset="0%" stopColor="#1e3a5f" />
+                    <stop offset="100%" stopColor="#047857" />
+                  </linearGradient>
+                </defs>
+                <rect x="4" y="20" width="6" height="8" rx="2" fill="url(#logo-grad-m)" opacity="0.5" />
+                <rect x="13" y="12" width="6" height="16" rx="2" fill="url(#logo-grad-m)" opacity="0.75" />
+                <rect x="22" y="4" width="6" height="24" rx="2" fill="url(#logo-grad-m)" />
+              </svg>
+              <span className="text-lg font-bold">
+                <span className="text-[var(--color-navy)]">Nivesh</span>
+                <span className="text-[var(--color-accent-secondary)]">.money</span>
+              </span>
+            </div>
+            <div className="flex flex-col gap-6 mt-4">
               {navLinks.map((link, i) => (
                 <SheetClose
                   key={link.href}

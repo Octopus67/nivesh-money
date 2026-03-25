@@ -121,7 +121,9 @@ export function Footer() {
           </p>
           <div className="flex items-center justify-between">
             <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} Nivesh.money. All rights reserved.
+              © {new Date().getFullYear()}{' '}
+              <span className="font-semibold text-white/60">Nivesh</span>
+              <span className="text-[#047857]">.money</span>. All rights reserved.
             </p>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
