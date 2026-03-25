@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import { Calendar, Clock } from 'lucide-react';
 import { ReadingProgressBar } from '@/components/reading-progress-bar';
@@ -9,28 +10,21 @@ import type { ComponentPropsWithoutRef } from 'react';
 
 const mdxComponents = {
   a: (props: ComponentPropsWithoutRef<'a'>) => (
-    <a {...props} className="text-[var(--color-emerald)] hover:underline" />
+    <a {...props} className="text-[var(--color-emerald)] hover:underline font-medium" />
   ),
-  h1: (props: ComponentPropsWithoutRef<'h1'>) => <h1 {...props} />,
-  h2: (props: ComponentPropsWithoutRef<'h2'>) => <h2 {...props} />,
-  h3: (props: ComponentPropsWithoutRef<'h3'>) => <h3 {...props} />,
-  p: (props: ComponentPropsWithoutRef<'p'>) => <p {...props} />,
-  ul: (props: ComponentPropsWithoutRef<'ul'>) => <ul {...props} />,
-  ol: (props: ComponentPropsWithoutRef<'ol'>) => <ol {...props} />,
-  li: (props: ComponentPropsWithoutRef<'li'>) => <li {...props} />,
-  strong: (props: ComponentPropsWithoutRef<'strong'>) => <strong {...props} />,
-  em: (props: ComponentPropsWithoutRef<'em'>) => <em {...props} />,
-  blockquote: (props: ComponentPropsWithoutRef<'blockquote'>) => <blockquote {...props} />,
-  code: (props: ComponentPropsWithoutRef<'code'>) => <code {...props} />,
-  pre: (props: ComponentPropsWithoutRef<'pre'>) => <pre {...props} />,
-  table: (props: ComponentPropsWithoutRef<'table'>) => <table {...props} />,
-  thead: (props: ComponentPropsWithoutRef<'thead'>) => <thead {...props} />,
-  tbody: (props: ComponentPropsWithoutRef<'tbody'>) => <tbody {...props} />,
-  tr: (props: ComponentPropsWithoutRef<'tr'>) => <tr {...props} />,
-  th: (props: ComponentPropsWithoutRef<'th'>) => <th {...props} />,
-  td: (props: ComponentPropsWithoutRef<'td'>) => <td {...props} />,
-  hr: (props: ComponentPropsWithoutRef<'hr'>) => <hr {...props} />,
-  img: (props: ComponentPropsWithoutRef<'img'>) => <img {...props} />,
+  blockquote: (props: ComponentPropsWithoutRef<'blockquote'>) => (
+    <blockquote className="border-l-4 border-[var(--color-emerald)] bg-[var(--color-emerald)]/5 rounded-r-lg px-5 py-4 my-6 not-italic" {...props} />
+  ),
+  table: (props: ComponentPropsWithoutRef<'table'>) => (
+    <div className="overflow-x-auto my-6 rounded-lg border border-black/10">
+      <table className="w-full text-sm" {...props} />
+    </div>
+  ),
+  thead: (props: ComponentPropsWithoutRef<'thead'>) => <thead className="bg-[#f1f5f9] text-left" {...props} />,
+  tbody: (props: ComponentPropsWithoutRef<'tbody'>) => <tbody className="divide-y divide-black/5" {...props} />,
+  tr: (props: ComponentPropsWithoutRef<'tr'>) => <tr className="hover:bg-black/[0.02]" {...props} />,
+  th: (props: ComponentPropsWithoutRef<'th'>) => <th className="px-4 py-3 font-semibold text-[#1e3a5f] text-xs uppercase tracking-wider" {...props} />,
+  td: (props: ComponentPropsWithoutRef<'td'>) => <td className="px-4 py-3" {...props} />,
 };
 
 interface Props {
@@ -95,8 +89,8 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </header>
 
-          <div className="prose prose-slate max-w-none prose-headings:text-[var(--color-navy)] prose-a:text-[var(--color-emerald)] prose-a:no-underline hover:prose-a:underline prose-strong:text-[var(--text-primary)] prose-li:text-[var(--text-secondary)] prose-p:text-[var(--text-secondary)]">
-            <MDXRemote source={post.content} components={mdxComponents} />
+          <div className="prose prose-lg prose-slate max-w-none prose-headings:text-[#1e3a5f] prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-[#374151] prose-p:leading-relaxed prose-p:mb-5 prose-a:text-[#047857] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#111827] prose-li:text-[#374151] prose-li:leading-relaxed prose-blockquote:not-italic prose-hr:my-8">
+            <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
           </div>
 
           <footer className="mt-12 pt-8 border-t border-[var(--bg-muted)]">
