@@ -36,7 +36,7 @@ export function HeroSection() {
       >
         <div className="glass-card p-4 rounded-xl shadow-lg -rotate-3 bg-white/80 backdrop-blur-md border border-black/[0.06]">
           <div className="text-xs text-[var(--text-muted)] mb-1">SIP Returns</div>
-          <div className="text-lg font-bold text-[var(--color-accent-secondary)]">₹11.8L</div>
+          <div className="text-lg font-bold text-[var(--color-emerald)]">₹11.8L</div>
           <div className="text-xs text-[var(--text-muted)]">from ₹5K/mo × 10 yrs</div>
           <svg className="w-full h-8 mt-2" viewBox="0 0 100 30" aria-hidden="true">
             <polyline points="0,25 25,20 50,15 75,8 100,3" fill="none" stroke="#047857" strokeWidth="2" strokeLinecap="round" />
@@ -54,7 +54,7 @@ export function HeroSection() {
           <div className="text-lg font-bold text-[var(--color-navy)]">+14.2%</div>
           <div className="text-xs text-[var(--text-muted)]">5Y CAGR (Moderate)</div>
           <svg className="w-12 h-12 mt-2 mx-auto" viewBox="0 0 36 36" aria-hidden="true">
-            <circle cx="18" cy="18" r="14" fill="none" stroke="var(--color-border-default)" strokeWidth="3" />
+            <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(0,0,0,0.1)" strokeWidth="3" />
             <circle cx="18" cy="18" r="14" fill="none" stroke="#047857" strokeWidth="3" strokeDasharray="60 40" strokeLinecap="round" transform="rotate(-90 18 18)" />
           </svg>
         </div>
@@ -72,10 +72,12 @@ export function HeroSection() {
           AMFI Registered Mutual Fund Distributor
         </motion.div>
 
-        <WordReveal
-          text="Grow Your Wealth With Expert Mutual Fund Advisory"
-          className="text-4xl md:text-[56px] font-bold leading-tight justify-center bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-emerald)] bg-clip-text text-transparent"
-        />
+        <div style={{ backgroundImage: 'linear-gradient(to bottom right, #1e3a5f, #047857)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <WordReveal
+            text="Grow Your Wealth With Expert Mutual Fund Advisory"
+            className="text-4xl md:text-[56px] font-bold leading-tight justify-center"
+          />
+        </div>
 
         <motion.p
           variants={fadeUp}
@@ -93,20 +95,20 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, delay: 1.0 }}
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm text-[var(--color-text-secondary)]"
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm text-[var(--text-secondary)]"
         >
           <div className="flex items-center gap-1.5">
-            <Shield className="w-4 h-4 text-[var(--color-accent-secondary)]" />
+            <Shield className="w-4 h-4 text-[var(--color-emerald)]" />
             <span>15+ Years</span>
           </div>
-          <div className="w-1 h-1 rounded-full bg-[var(--color-border-default)] hidden sm:block" />
+          <div className="w-1 h-1 rounded-full bg-[rgba(0,0,0,0.1)] hidden sm:block" />
           <div className="flex items-center gap-1.5">
-            <Users className="w-4 h-4 text-[var(--color-accent-secondary)]" />
+            <Users className="w-4 h-4 text-[var(--color-emerald)]" />
             <span>500+ Clients</span>
           </div>
-          <div className="w-1 h-1 rounded-full bg-[var(--color-border-default)] hidden sm:block" />
+          <div className="w-1 h-1 rounded-full bg-[rgba(0,0,0,0.1)] hidden sm:block" />
           <div className="flex items-center gap-1.5">
-            <TrendingUp className="w-4 h-4 text-[var(--color-accent-secondary)]" />
+            <TrendingUp className="w-4 h-4 text-[var(--color-emerald)]" />
             <span>₹50Cr+ Managed</span>
           </div>
         </motion.div>
