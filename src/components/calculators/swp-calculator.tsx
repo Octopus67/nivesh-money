@@ -66,9 +66,9 @@ export function SWPCalculator() {
       }} />
       {/* Inputs */}
       <div className="space-y-6">
-        <PremiumSlider label="Total Corpus" min={100000} max={100000000} step={100000} value={corpus} onChange={setCorpus} formatValue={formatINRCompact} />
-        <PremiumSlider label="Monthly Withdrawal" min={1000} max={500000} step={1000} value={withdrawal} onChange={setWithdrawal} formatValue={formatINR} />
-        <PremiumSlider label="Expected Return (%)" min={1} max={15} step={0.5} value={annualReturn} onChange={setAnnualReturn} formatValue={(v) => `${v}%`} />
+        <PremiumSlider label="Total Corpus" min={100000} max={500000000} step={100000} value={corpus} onChange={setCorpus} formatValue={formatINRCompact} />
+        <PremiumSlider label="Monthly Withdrawal" min={1000} max={2000000} step={1000} value={withdrawal} onChange={setWithdrawal} formatValue={formatINR} />
+        <PremiumSlider label="Expected Return (%)" min={1} max={30} step={0.5} value={annualReturn} onChange={setAnnualReturn} formatValue={(v) => `${v}%`} />
         <PremiumSlider label="Time Period (Years)" min={1} max={30} step={1} value={years} onChange={setYears} formatValue={(v) => `${v} yr`} />
 
         {/* Results */}

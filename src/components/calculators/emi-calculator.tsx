@@ -67,7 +67,7 @@ export function EMICalculator() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Inputs */}
         <div className="space-y-6">
-          <PremiumSlider label="Loan Amount" min={100000} max={100000000} step={50000} value={principal} onChange={setPrincipal} formatValue={formatINRCompact} />
+          <PremiumSlider label="Loan Amount" min={100000} max={500000000} step={50000} value={principal} onChange={setPrincipal} formatValue={formatINRCompact} />
           <PremiumSlider label="Interest Rate (%)" min={1} max={20} step={0.25} value={rate} onChange={setRate} formatValue={(v) => `${v}%`} />
           <PremiumSlider label="Loan Tenure (Years)" min={1} max={30} step={1} value={years} onChange={setYears} formatValue={(v) => `${v} yrs`} />
 

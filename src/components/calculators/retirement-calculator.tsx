@@ -80,12 +80,12 @@ export function RetirementCalculator() {
         <div className="space-y-5">
           <PremiumSlider label="Current Age" min={18} max={60} step={1} value={currentAge} onChange={setCurrentAge} formatValue={(v) => `${v} yrs`} />
           <PremiumSlider label="Retirement Age" min={45} max={75} step={1} value={retirementAge} onChange={setRetirementAge} formatValue={(v) => `${v} yrs`} />
-          <PremiumSlider label="Monthly Expenses" min={10000} max={500000} step={5000} value={monthlyExpenses} onChange={setMonthlyExpenses} formatValue={formatINRCompact} />
+          <PremiumSlider label="Monthly Expenses" min={10000} max={2000000} step={5000} value={monthlyExpenses} onChange={setMonthlyExpenses} formatValue={formatINRCompact} />
           <PremiumSlider label="Inflation (%)" min={3} max={12} step={0.5} value={inflation} onChange={setInflation} formatValue={(v) => `${v}%`} />
           <PremiumSlider label="Pre-Retirement Return (%)" min={8} max={18} step={0.5} value={preReturn} onChange={setPreReturn} formatValue={(v) => `${v}%`} />
           <PremiumSlider label="Post-Retirement Return (%)" min={4} max={12} step={0.5} value={postReturn} onChange={setPostReturn} formatValue={(v) => `${v}%`} />
           <PremiumSlider label="Years in Retirement" min={10} max={40} step={1} value={retirementYears} onChange={setRetirementYears} formatValue={(v) => `${v} yrs`} />
-          <PremiumSlider label="Existing Savings" min={0} max={50000000} step={100000} value={existingSavings} onChange={setExistingSavings} formatValue={formatINRCompact} />
+          <PremiumSlider label="Existing Savings" min={0} max={200000000} step={100000} value={existingSavings} onChange={setExistingSavings} formatValue={formatINRCompact} />
         </div>
 
         {/* Results + Chart */}

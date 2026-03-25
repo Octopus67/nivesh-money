@@ -84,7 +84,7 @@ export function GoalPlannerCalculator() {
             </Select>
           </div>
 
-          <PremiumSlider label="Target Amount" min={100000} max={50000000} step={50000} value={targetAmount} onChange={setTargetAmount} formatValue={formatINRCompact} />
+          <PremiumSlider label="Target Amount" min={100000} max={200000000} step={50000} value={targetAmount} onChange={setTargetAmount} formatValue={formatINRCompact} />
           <PremiumSlider label="Years to Goal" min={1} max={30} step={1} value={years} onChange={setYears} formatValue={(v) => `${v} yrs`} />
           <PremiumSlider label="Expected Return (%)" min={8} max={18} step={0.5} value={returnRate} onChange={setReturnRate} formatValue={(v) => `${v}%`} />
           <PremiumSlider label="Inflation (%)" min={3} max={15} step={0.5} value={inflation} onChange={setInflation} formatValue={(v) => `${v}%`} />

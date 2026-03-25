@@ -7,10 +7,17 @@ import { SpotlightCard } from '@/components/ui/spotlight-card';
 import { GlassCard } from '@/components/ui/glass-card';
 
 const items = [
-  { icon: Shield, title: 'Unbiased Advice', desc: 'We recommend what\'s right for you, not what earns us the highest commission.', color: 'var(--color-navy)' },
-  { icon: RefreshCw, title: 'Regular Reviews', desc: 'Quarterly portfolio reviews to keep your investments aligned with your goals.', color: 'var(--color-emerald)' },
-  { icon: Heart, title: 'Personal Touch', desc: 'You\'re not a ticket number. We know your family, your goals, and your concerns.', color: 'var(--color-blue)' },
-  { icon: BookOpen, title: 'Financial Education', desc: 'We explain every decision so you understand your money and grow confident.', color: 'var(--color-amber)' },
+  { icon: Shield, title: 'Unbiased Advice', desc: 'We recommend what\'s right for you, not what earns us the highest commission.' },
+  { icon: RefreshCw, title: 'Regular Reviews', desc: 'Quarterly portfolio reviews to keep your investments aligned with your goals.' },
+  { icon: Heart, title: 'Personal Touch', desc: 'You\'re not a ticket number. We know your family, your goals, and your concerns.' },
+  { icon: BookOpen, title: 'Financial Education', desc: 'We explain every decision so you understand your money and grow confident.' },
+];
+
+const iconStyles = [
+  { bg: 'bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8e]', shadow: 'shadow-[0_4px_14px_rgba(30,58,95,0.3)]' },
+  { bg: 'bg-gradient-to-br from-[#047857] to-[#059669]', shadow: 'shadow-[0_4px_14px_rgba(4,120,87,0.3)]' },
+  { bg: 'bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8e]', shadow: 'shadow-[0_4px_14px_rgba(30,58,95,0.3)]' },
+  { bg: 'bg-gradient-to-br from-[#047857] to-[#059669]', shadow: 'shadow-[0_4px_14px_rgba(4,120,87,0.3)]' },
 ];
 
 export function WhyChooseUs() {
@@ -33,15 +40,10 @@ export function WhyChooseUs() {
               className="group"
             >
               <SpotlightCard className="h-full">
-                <GlassCard
-                  className="h-full transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"
-                  style={{ borderLeft: `3px solid ${item.color}` }}
-                >
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center mb-4"
-                    style={{ backgroundColor: `color-mix(in srgb, ${item.color} 10%, transparent)` }}
-                  >
-                    <item.icon size={24} style={{ color: item.color }} />
+                <GlassCard className="h-full overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-[0_12px_40px_rgba(30,58,95,0.12)]">
+                  <div className="h-[3px] rounded-t-xl bg-gradient-to-r from-[#1e3a5f] via-[#047857] to-[#3b82f6] -mx-6 -mt-6 mb-6" />
+                  <div className={`w-12 h-12 rounded-xl p-3 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105 ${iconStyles[i].bg} ${iconStyles[i].shadow}`}>
+                    <item.icon size={24} className="text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">{item.title}</h3>
                   <p className="text-[var(--text-secondary)] leading-relaxed text-sm">{item.desc}</p>

@@ -72,12 +72,10 @@ export function HeroSection() {
           AMFI Registered Mutual Fund Distributor
         </motion.div>
 
-        <div style={{ backgroundImage: 'linear-gradient(to bottom right, #1e3a5f, #047857)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-          <WordReveal
-            text="Grow Your Wealth With Expert Mutual Fund Advisory"
-            className="text-4xl md:text-[56px] font-bold leading-tight justify-center"
-          />
-        </div>
+        <WordReveal
+          text="Grow Your Wealth With Expert Mutual Fund Advisory"
+          className="text-4xl md:text-[56px] font-bold leading-tight justify-center text-[#1e3a5f]"
+        />
 
         <motion.p
           variants={fadeUp}

@@ -19,6 +19,9 @@ export function PremiumSlider({
   min, max, step, value, onChange, formatValue, label, className,
 }: PremiumSliderProps) {
   const [isDragging, setIsDragging] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValue, setEditValue] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
   const dragTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const displayValue = formatValue ? formatValue(value) : String(value);
   const percent = ((value - min) / (max - min)) * 100;
@@ -33,13 +36,46 @@ export function PremiumSlider({
     [onChange]
   );
 
+  const startEdit = () => {
+    setIsEditing(true);
+    setEditValue(String(value));
+    setTimeout(() => inputRef.current?.select(), 0);
+  };
+
+  const confirmEdit = () => {
+    const parsed = Number(editValue.replace(/[^0-9.]/g, ''));
+    if (!isNaN(parsed) && parsed >= min) {
+      // Allow typed values up to 10x slider max for flexibility, but cap to prevent overflow
+      onChange(Math.min(Math.max(min, parsed), max * 10));
+    }
+    setIsEditing(false);
+  };
+
   return (
     <div className={cn('space-y-3', className)}>
       <div className="flex items-center justify-between">
         <label className="text-sm font-medium text-[var(--text-secondary)]">{label}</label>
-        <span className="text-sm font-mono font-semibold text-[var(--color-navy)] tabular-nums">
-          {displayValue}
-        </span>
+        {isEditing ? (
+          <input
+            ref={inputRef}
+            value={editValue}
+            onChange={e => setEditValue(e.target.value)}
+            onBlur={confirmEdit}
+            onKeyDown={e => { if (e.key === 'Enter') confirmEdit(); if (e.key === 'Escape') setIsEditing(false); }}
+            className="w-28 text-right text-sm font-mono font-semibold px-2 py-0.5 rounded border border-[var(--color-emerald)] bg-white text-[var(--color-navy)] outline-none"
+            inputMode="decimal"
+            aria-label={label}
+            autoFocus
+          />
+        ) : (
+          <button
+            onClick={startEdit}
+            className="text-sm font-mono font-semibold text-[var(--color-navy)] tabular-nums hover:text-[var(--color-emerald)] hover:underline underline-offset-2 cursor-text transition-colors"
+            title="Click to type a value"
+          >
+            {displayValue}
+          </button>
+        )}
       </div>
       <div className="relative">
         {isDragging && (

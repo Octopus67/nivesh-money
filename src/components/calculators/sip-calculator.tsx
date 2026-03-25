@@ -51,7 +51,7 @@ export function SIPCalculator() {
       }} />
       {/* Inputs */}
       <div className="space-y-6">
-        <PremiumSlider label="Monthly Investment" min={500} max={100000} step={500} value={monthly} onChange={setMonthly} formatValue={formatINR} />
+        <PremiumSlider label="Monthly Investment" min={500} max={1000000} step={500} value={monthly} onChange={setMonthly} formatValue={formatINR} />
         <PremiumSlider label="Expected Return (%)" min={1} max={30} step={0.5} value={annualReturn} onChange={setAnnualReturn} formatValue={(v) => `${v}%`} />
         <PremiumSlider label="Time Period (Years)" min={1} max={40} step={1} value={years} onChange={setYears} formatValue={(v) => `${v} yr`} />
         <PremiumSlider label="Annual Step-Up (%)" min={0} max={25} step={1} value={stepUp} onChange={setStepUp} formatValue={(v) => `${v}%`} />

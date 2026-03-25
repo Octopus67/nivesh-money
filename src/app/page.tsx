@@ -3,7 +3,6 @@ import { HeroSection } from '@/components/sections/hero';
 import { TrustBar } from '@/components/sections/trust-bar';
 import { ServicesGrid } from '@/components/sections/services-grid';
 import { WhyChooseUs } from '@/components/sections/why-choose-us';
-import { Testimonials } from '@/components/sections/testimonials';
 import { CalculatorPreview } from '@/components/sections/calculator-preview';
 import { FAQ } from '@/components/sections/faq';
 import { CTASection } from '@/components/sections/cta-section';
@@ -23,8 +22,6 @@ export default function Home() {
       <ServicesGrid />
       <div className="section-divider" />
       <WhyChooseUs />
-      <div className="section-divider" />
-      <Testimonials />
       <div className="section-divider" />
       <CalculatorPreview />
       <div className="section-divider" />
